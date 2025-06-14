@@ -1,0 +1,99 @@
+body {
+  background-color: #ffe6f0;
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  min-height: 100vh;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 40px;
+  padding: 10px;
+  text-align: center;
+}
+
+.sobre {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-color: #ffb6c1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.tapa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff99bb;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 2;
+  transition: transform 1s ease;
+}
+
+.tapa.abierta {
+  transform: translateY(-150%);
+}
+
+.carta {
+  background-color: white;
+  margin-top: 20px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  display: none;
+  max-height: 70vh;
+  overflow-y: auto;
+  animation: aparecer 1s ease forwards;
+}
+
+.carta.visible {
+  display: block;
+}
+
+@keyframes aparecer {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+h1 {
+  color: #cc3366;
+  font-size: 24px;
+  margin-top: 0;
+}
+
+p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  margin: 1em 0;
+}
+
+.decoracion {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #ff99bb;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e36b8d;
+}

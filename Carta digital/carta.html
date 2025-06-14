@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta Rosa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <audio id="musica" src="https://youtu.be/iggmiF7DNoM" preload="auto"></audio>
+
+  <div class="contenedor">
+    <div class="sobre" onclick="abrirCarta()">
+      <div class="tapa" id="tapa"></div>
+    </div>
+
+    <div class="carta" id="carta">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqI2pxAtM05kU38vZMa917BfltcGWQE7SLYg&s" alt="Decoración" class="decoracion">
+      <h1>Querida Sofiliana</h1>
+      <p>FELIZ CUMPLEAÑOS MI HERMOSA SERENDIPIA...</p>
+      <p>Hoy me tomo el tiempo de expresarte mi sentir en este dia.</p>
+      <p>Los buenos deseos están de más en esta situación, ya que cada nuevo año te da el potencial suficiente para cumplir y lograr tus anhelos.
+Confío ciegamente que siempre lograrás brillar incluso en los peores momentos de tu vida, sin importar nada, ni nadie.
+Tu alma es hermosa al igual que tú. Mi cariño hacia ti es enorme y aunque pase el tiempo siempre permanecerá intacto, como el primer día, te aprecio y anhelo que todos los días seas feliz; con personas buenas, aquellas que siempre sumen a tu vida y a tu hermosa vibra.
+
+Felicidades hermosa, rodeate de amor y paz, te mereces lo mejor de este mundo..</p>
+      <p>Siempre contarás conmigo. Con cariño,</p>
+      <p><strong>Celestina</strong></p>
+
+      <button onclick="compartirCarta(event)">💌 Compartir esta carta</button>
+    </div>
+  </div>
+
+  <script>
+    let abierta = false;
+
+    function abrirCarta() {
+      if (!abierta) {
+        document.getElementById('tapa').classList.add('abierta');
+        document.getElementById('carta').classList.add('visible');
+        document.getElementById('musica').play();
+        abierta = true;
+      }
+    }
+
+    function compartirCarta(e) {
+      e.stopPropagation();
+      if (navigator.share) {
+        navigator.share({
+          title: 'Carta digital 💌',
+          text: 'Una carta especial para ti',
+          url: window.location.href
+        }).catch(() => alert("No se pudo compartir."));
+      } else {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          alert("Enlace copiado. ¡Puedes compartirlo donde quieras!");
+        });
+      }
+    }
+  </script>
+</body>
+</html>
